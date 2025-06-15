@@ -1,0 +1,100 @@
+---
+layout: default
+---
+
+<div class="page__hero--overlay"
+     style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ page.header.image | relative_url }}'); background-size: cover; background-position: center;">
+  <div class="wrapper">
+    <h1 id="page-title" class="page__title" itemprop="headline">
+      {{ page.header.title | default: page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
+    </h1>
+    {% if page.header.subtitle %}
+      <p class="page__lead">{{ page.header.subtitle | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+    {% endif %}
+    {% if page.header.cta_label and page.header.cta_url %}
+      <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+    {% endif %}
+  </div>
+</div>
+
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+    <meta itemprop="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape_once }}">
+
+    <section class="page__content" itemprop="text">
+      {{ content }}
+      
+      <!-- Three Menu Sections -->
+      <div class="menu-sections">
+        <div class="menu-container">
+          {% if page.menu_one %}
+          <div class="menu-section">
+            <h2 class="menu-title">{{ page.menu_one.title }}</h2>
+            <p class="menu-description">{{ page.menu_one.description }}</p>
+            <div class="menu-items">
+              {% for item in page.menu_one.items %}
+              <div class="menu-item">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+              {% endfor %}
+            </div>
+            {% if page.menu_one.button %}
+            <div class="menu-button">
+              <a href="{{ page.menu_one.button.url | relative_url }}" class="btn btn--primary btn--large">
+                {{ page.menu_one.button.text }}
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% if page.menu_two %}
+          <div class="menu-section">
+            <h2 class="menu-title">{{ page.menu_two.title }}</h2>
+            <p class="menu-description">{{ page.menu_two.description }}</p>
+            <div class="menu-items">
+              {% for item in page.menu_two.items %}
+              <div class="menu-item">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+              {% endfor %}
+            </div>
+            {% if page.menu_two.button %}
+            <div class="menu-button">
+              <a href="{{ page.menu_two.button.url | relative_url }}" class="btn btn--info btn--large">
+                {{ page.menu_two.button.text }}
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% if page.menu_three %}
+          <div class="menu-section">
+            <h2 class="menu-title">{{ page.menu_three.title }}</h2>
+            <p class="menu-description">{{ page.menu_three.description }}</p>
+            <div class="menu-items">
+              {% for item in page.menu_three.items %}
+              <div class="menu-item">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+              {% endfor %}
+            </div>
+            {% if page.menu_three.button %}
+            <div class="menu-button">
+              <a href="{{ page.menu_one.button.url | relative_url }}" class="btn btn--success btn--large">
+                {{ page.menu_three.button.text }}
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </article>
+</div>
