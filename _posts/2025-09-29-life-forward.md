@@ -10,7 +10,7 @@ Hello, I'm back writing this blog after several months inactive. There is sudden
 
 ## Where to *next*?
 > "Life is still long" -> say someone who already got a job and someone who is a princess of a businessman
-
+---
 Of course, I do know what they meant to said. Yet, I still believe one needed to do things as fast as possible. For a brute simplification, Life is like a visual novel with complex decision making. With as many mistakes as player make, They may discover a way out toward the desirable route. Yet, some path cannot be repeated and just need to be remembered as a lesson. The process of obtaining the desirable route may take forever, but one can speed up the process by taking a walktrough. That just what I think of life. I still need to take as many _walktrough_ as I can in order to reach the desirable ending for myself without sacrificing much time. My advice is that life may not be full on happiness, but one can still squeeze delight out of it. The biggest question next is, _what kind of route should one need?_
 
 ## Prepare for next test
