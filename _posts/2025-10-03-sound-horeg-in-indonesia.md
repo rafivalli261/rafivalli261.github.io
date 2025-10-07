@@ -11,6 +11,4 @@ However, not all forms of music are universally celebrated. One controversial ph
 
 The debate over horeg reflects wider tensions between cultural expression and public welfare. Although some communities enjoy it as a form of entertainment, its negative impacts on health and social order suggest the need for stricter regulation. A balanced approach would allow individuals to enjoy music without compromising the well-being of others.
 
-
-
 <!-- ICG as an assembly, start up? -->
