@@ -375,5 +375,3 @@ defaults:
       comments: true
       share: true
       related: true
-
-plugins_dir: [_plugins]

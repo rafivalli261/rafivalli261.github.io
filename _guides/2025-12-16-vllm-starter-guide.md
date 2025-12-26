@@ -56,4 +56,3 @@ def hello_world
 end
 {% endhighlight %}
 
-### Here is my custom output: {% hello_ruby %}
