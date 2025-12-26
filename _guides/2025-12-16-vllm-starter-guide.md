@@ -48,4 +48,12 @@ curl http://localhost:8000/v1/completions \
 ```
 
 That is for now. I will come back with better English and content soon.
-Hmm, I wonder what I should do now 
+Hmm, I wonder what I should do now. Maybe I should do a Ruby Code here
+
+{% highlight ruby %}
+def hello_world
+  puts "Hello from Jekyll!"
+end
+{% endhighlight %}
+
+### Here is my custom output: {% hello_ruby %}
