@@ -1,0 +1,55 @@
+---
+// src/components/ml/MLP.astro
+const { layers = [3, 5, 4, 2] } = Astro.props;
+const W = 600, H = 320;
+
+const nodes = layers.map((count: number, l: number) =>
+  Array.from({ length: count }, (_, i) => ({
+    x: ((l + 1) * W) / (layers.length + 1),
+    y: ((i + 1) * H) / (count + 1),
+  }))
+);
+
+const edges = [];
+for (let l = 0; l < layers.length - 1; l++)
+  for (const a of nodes[l])
+    for (const b of nodes[l + 1]) edges.push({ a, b, l });
+---
+<svg viewBox={`0 0 ${W} ${H}`} class="mlp" role="img" aria-label="Animated neural network">
+  {edges.map((e) => (
+    <line x1={e.a.x} y1={e.a.y} x2={e.b.x} y2={e.b.y}
+          class="edge" style={`--layer: ${e.l}`} />
+  ))}
+  {nodes.flatMap((layer: typeof nodes[number], l: number) =>
+    layer.map((n: { x: number; y: number }) => (
+      <circle cx={n.x} cy={n.y} r="12" class="node" style={`--layer: ${l}`} />
+    ))
+  )}
+</svg>
+
+<style>
+  .mlp { width: 100%; height: auto; margin: 2rem 0; }
+  .edge {
+    stroke: #d1d5db; stroke-width: 1;
+    animation: pulse-edge 3s infinite;
+    animation-delay: calc((var(--layer) + 0.5) * 0.5s);
+  }
+  .node {
+    fill: white; stroke: #374151; stroke-width: 2;
+    animation: pulse-node 3s infinite;
+    animation-delay: calc(var(--layer) * 0.5s);
+  }
+  @keyframes pulse-edge {
+    0%, 100% { stroke: #d1d5db; stroke-width: 1; }
+    15% { stroke: #f97316; stroke-width: 2.5; }
+    30% { stroke: #d1d5db; stroke-width: 1; }
+  }
+  @keyframes pulse-node {
+    0%, 100% { fill: white; }
+    15% { fill: #f97316; }
+    30% { fill: white; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .edge, .node { animation: none; }
+  }
+</style>

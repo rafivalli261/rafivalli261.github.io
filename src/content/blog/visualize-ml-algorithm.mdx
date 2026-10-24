@@ -1,0 +1,23 @@
+---
+title: "Visualize ML Algorithms"
+date: 2026-10-24
+description: "Visualization of certain type of ML Algorithms"
+tags: ["algorithm", "artificial intelligence", "machine learning"]
+draft: false
+---
+
+import LinearRegression from '../../components/ml/LinearRegression.astro';
+import MLP from '../../components/ml/MLP.astro';
+
+## Linear Regression
+
+Linear regression finds the line that minimizes the mean squared error.
+Watch gradient descent adjust the slope and intercept step by step:
+
+<LinearRegression points={50} learningRate={0.3} />
+
+## Multilayer Perceptron
+
+An MLP passes signals forward through layers of neurons:
+
+<MLP layers={[3, 5, 4, 2]} />
